@@ -1,0 +1,97 @@
+:root {
+  --backgroundColor: #102542;
+  --textColor: #d9edfe;
+  --primaryColor: #00ffa1;
+  --secondaryColor: #8c00ff;
+  --accentColor: #0fc0fb;
+}
+
+body {
+  background: var(--backgroundColor);
+}
+
+.brand {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: var(--textColor) !important;
+}
+
+.enlace {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--textColor);
+}
+
+.navbarColor {
+  background: rgb(15, 192, 251);
+  background: linear-gradient(
+    311deg,
+    rgba(15, 192, 251, 1) 0%,
+    rgba(140, 0, 255, 1) 81%
+  );
+}
+
+.colorColapse {
+  color: white !important;
+}
+
+.link {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+.link:hover,
+.link:focus {
+  text-decoration: none;
+  color: var(--primaryColor);
+}
+.banner {
+  color: var(--textColor) !important;
+  margin-top: 15vh !important;
+  font-family: "CookieRunOTF Regular";
+  font-size: 15vh !important;
+  position: relative;
+  z-index: 2;
+}
+
+.Decore {
+  margin-top: 15vh;
+  font-family: "CookieRunOTF Regular";
+  font-size: 15vh;
+  background: linear-gradient(
+    311deg,
+    rgba(15, 192, 251, 1) 38%,
+    rgba(140, 0, 255, 1) 67%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+.imgContainer {
+  height: 300px; /* Ajusta este valor a la altura deseada */
+  background-image: url("casaPlaya.jpg");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Ajusta el último valor para cambiar la opacidad */
+  z-index: 1;
+}
