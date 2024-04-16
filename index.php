@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 
@@ -31,13 +32,27 @@
 
         <?php include 'navbar.php'; ?>
 
-        <div class=" imgContainer">
+        <div class=" imgContainer display-block">
             <h1 class="banner text-center">lazy <span class="Decore"> Travels</span></h1>
-
+            <p class="subBanner fs-2">Viaja con total comodida en Lazy Travels</p>
         </div>
+
+        <div class="mt-5 py-3 rounded-5 degrade container">
+            <h2 class="titlesDegrade fs-3 text-center">En Lazy Travels Ofrecemos</h2>
+        </div>
+
+        <div class="container my-5 d-flex gap-5 justify-content-center">
+            <div class="card text-center">Podras</div>
+            <div class="card2 text-center">Tendras la Oportunidad de </div>
+            <div class="card3 text-center">Brindaremos</div>
+        </div>
+
+        <?php include 'footer.php'; ?>
 
 
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     </html>
+=======
+>>>>>>> 9a2cf9063d22b3a618d08b866e1e7c3b978ed131

@@ -30,7 +30,7 @@
                         <a class="link enlace fs-5" href="index.php">Incio</a>
                     </li>
                     <li class="nav-item mx-3">
-                        <a class="link enlace fs-5" href="#">Alojamientos</a>
+                        <a class="link enlace fs-5" href="alojamientos.php">Alojamientos</a>
                     </li>
                     <li class="nav-item mx-3">
                         <a class="link enlace fs-5" href="#"> Proporcionar Alojamiento</a>
