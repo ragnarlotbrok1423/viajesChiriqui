@@ -1,0 +1,15 @@
+.btn-azul{
+background-color: #102542;
+
+}
+.btn-azul:hover {
+    background-color: #1c3d6b !important;
+    color: #FFFFFF !important;
+}
+.bg-azul{
+    background-color: #102542;    
+}
+h4{
+color: #102542;
+text-align: center;
+}
