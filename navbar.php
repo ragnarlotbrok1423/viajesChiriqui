@@ -33,17 +33,33 @@
                         <a class="link enlace fs-5" href="alojamientos.php">Alojamientos</a>
                     </li>
                     <li class="nav-item mx-3">
-                        <a class="link enlace fs-5" href="#"> Proporcionar Alojamiento</a>
+                        <a class="link enlace fs-5" href="proveedores.php"> Proporcionar Alojamiento</a>
                     </li>
                     <li class="nav-item mx-3">
-                        <a class="link enlace fs-5" href="#">Reservas en Tramite</a>
+                        <a class="link enlace fs-5" href="reserva.php">Reservas en Tramite</a>
                     </li>
                 </ul>
 
                 <div class="d-flex m-4 justify-content-end ms-auto">
-                    <button type="button" class="btn" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Nombre Usuario">
-                        <i class="fa-solid fa-user fa-2xl" style="color: #00ffa1;"></i>
-                    </button>
+                    <form action="navbar.php" method="POST">
+                        <button type="submit" class="btn" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Nombre Usuario" name="logOut">
+                            <i class="fa-solid fa-user fa-2xl" style="color: #00ffa1;"></i>
+                        </button>
+                    </form>
+                    <?php
+                    session_start();
+
+                    // Check if the logout request was sent
+                    if (isset($_POST['logOut'])) {
+                        // Destroy the session
+                        session_destroy();
+
+                        echo "<script type='text/javascript'>document.location.href='log-in.php';</script>";
+                        exit;
+                    }
+
+                    // ...
+                    ?>
                 </div>
 
 

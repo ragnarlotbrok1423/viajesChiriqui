@@ -12,29 +12,81 @@
 </head>
 
 <body>
-
+    <?php include 'connection.php'; ?>
     <?php include 'navbar.php'; ?>
 
-    <form class="text-center my-5 d-flex mx-5" role="search">
-        <input class="form-control me-2" type="search" placeholder="Busca tu sitio" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
+    <form class="text-center my-5 d-flex mx-5" role="search" method="POST" action="alojamientos.php">
+        <input class="form-control me-2" type="search" placeholder="Busca tu sitio" aria-label="Search" name="nombreAlojamiento">
+        <button class="btn btn-outline-success" type="submit" name="buscar">Buscar</button>
     </form>
 
+    <?php
+    // Initialize the query
+    $query = "SELECT idAlojamiento, nombreAlojamiento, descripcionAlojamiento, precioAlojamiento, lugarAlojamiento FROM alojamientos";
 
-    <div class="nft">
-        <div class='main'>
-            <img class='tokenImage' src="https://images.unsplash.com/photo-1621075160523-b936ad96132a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="NFT" />
-            <h2 class="text-white">Lugar</h2>
-            <p class='description'>Descripción del lugar</p>
+    // Check if the form was submitted
+    if (isset($_POST['buscar'])) {
+        $nombreAlojamiento = $_POST['nombreAlojamiento'];
 
-            <hr />
-            <div class='creator'>
+        // Modify the query to filter by the name of the accommodation
+        $query .= " WHERE nombreAlojamiento LIKE '%$nombreAlojamiento%'";
+    }
 
-                <p class="text-white">Pricing 3.45$</p>
-            </div>
+    $result = mysqli_query($conn, $query);
+
+    $alojamientos = array();  // Initialize an empty array
+
+    // Check if the query was successful
+    if ($result) {
+        // Loop through the rows of data
+        while ($row = mysqli_fetch_assoc($result)) {
+            // Add the row to the array
+            $alojamientos[] = $row;
+        }
+    }
+    ?>
+    <?php
+    // Perform the database query to fetch the data
+    $query = "SELECT idAlojamiento, nombreAlojamiento, descripcionAlojamiento, precioAlojamiento, lugarAlojamiento FROM alojamientos";
+    $result = mysqli_query($conn, $query);
+
+    $alojamientos = array();  // Initialize an empty array
+
+    // Check if the query was successful
+    if ($result) {
+        // Loop through the rows of data
+        while ($row = mysqli_fetch_assoc($result)) {
+            // Add the row to the array
+            $alojamientos[] = $row;
+        }
+    }
+    ?>
+
+    <!-- Generate the HTML -->
+    <!-- Generate the HTML -->
+    <?php foreach (array_chunk($alojamientos, 3) as $row) : ?>
+        <div class='row'>
+            <?php foreach ($row as $alojamiento) : ?>
+                <div class='col-4'>
+                    <a href="reserva.php?id=<?= $alojamiento['idAlojamiento'] ?>" style="text-decoration: none;">
+                        <div class='nft'>
+                            <div class='main'>
+                                <img class='tokenImage' src='https://images.unsplash.com/photo-1621075160523-b936ad96132a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80' alt='NFT' />
+                                <h2 class='text-white'><?= $alojamiento['nombreAlojamiento'] ?></h2>
+                                <p class='description'><?= $alojamiento['descripcionAlojamiento'] ?></p>
+
+                                <hr />
+                                <div class='creator gap-5'>
+                                    <p class='text-white'>Pricing <?= $alojamiento['precioAlojamiento'] ?></p>
+                                    <p class='text-white'><?= $alojamiento['lugarAlojamiento'] ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <?php endforeach; ?>
         </div>
-    </div>
-
+    <?php endforeach; ?>
     <?php include 'footer.php'; ?>
 
 </body>

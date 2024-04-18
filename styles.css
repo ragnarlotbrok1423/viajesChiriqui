@@ -1,15 +1,17 @@
-.btn-azul{
-background-color: #102542;
-
+.btn-azul {
+  background-color: #102542;
 }
 .btn-azul:hover {
-    background-color: #1c3d6b !important;
-    color: #FFFFFF !important;
+  background-color: #1c3d6b !important;
+  color: #ffffff !important;
 }
-.bg-azul{
-    background-color: #102542;    
+.bg-azul {
+  background-color: #102542;
 }
-h4{
-color: #102542;
-text-align: center;
+h4 {
+  color: #102542;
+  text-align: center;
+}
+.toast {
+  z-index: 9999;
 }
